@@ -28,13 +28,13 @@ public class UserServiceImp implements UserService {
 
    @Transactional(readOnly = true)
    @Override
-   public User findUserByCar(String model, int series) {
-      return userDao.findUserByCar(model, series);
+   public User getUserByCar(String model, int series) {
+      return userDao.getUserByCar(model, series);
    }
 
    @Transactional
    @Override
-   public void clearTables() {
-      userDao.clearTables();
+   public void clearUsers() {
+      userDao.clearUsers();
    }
 }

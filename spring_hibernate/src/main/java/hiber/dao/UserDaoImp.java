@@ -27,7 +27,7 @@ public class UserDaoImp implements UserDao {
    }
 
    @Override
-   public User findUserByCar(String model, int series) {
+   public User getUserByCar(String model, int series) {
       String hql = "from User u left join fetch u.car where u.car.model = :model and u.car.series = :series";
       return sessionFactory.getCurrentSession()
               .createQuery(hql, User.class)
@@ -37,8 +37,7 @@ public class UserDaoImp implements UserDao {
    }
 
    @Override
-   public void clearTables() {
+   public void clearUsers() {
       sessionFactory.getCurrentSession().createQuery("delete from User").executeUpdate();
-      sessionFactory.getCurrentSession().createQuery("delete from Car").executeUpdate();
    }
 }
